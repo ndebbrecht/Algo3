@@ -22,3 +22,24 @@ BinarySearchTree::BinarySearchTree(const BinarySearchTree& orig) {
 BinarySearchTree::~BinarySearchTree() {
 }
 
+BinarySearchTree::Insert(int key, string value){
+    
+}
+
+Knoten BinarySearchTree::search(ubt key){
+    
+}
+
+BinarySearchTree::remove(int key){
+    
+}
+
+BinarySearchTree::check(){
+    
+}
+
+int BinarySearchTree::height(){
+    int height = 0;
+    
+    return height;
+}
