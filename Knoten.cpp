@@ -20,7 +20,7 @@ Knoten* left;
 Knoten* right;
 Knoten* root;
 
-Knoten::Knoten(int key, string value, Knoten* root) {
+Knoten::Knoten(int key, string value) {
     this->key = key:
     this->value = value;
     this->root = root;
@@ -34,10 +34,12 @@ Knoten::~Knoten() {
 
 Knoten::setLeft(Knoten* left){
     this->left = left;
+    left->setRoot(this);
 }
 
 Knoten::setRight(Knoten* right){
     this->right = right;
+    right->setRoot(this);
 }
 
 Knoten* Knoten::getLeft(){

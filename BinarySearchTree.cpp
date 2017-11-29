@@ -13,7 +13,10 @@
 
 #include "BinarySearchTree.h"
 
-BinarySearchTree::BinarySearchTree() {
+Knoten root;
+
+BinarySearchTree::BinarySearchTree(int key, string value) {
+    this->root = new Knoten(key, value);
 }
 
 BinarySearchTree::BinarySearchTree(const BinarySearchTree& orig) {
@@ -22,12 +25,42 @@ BinarySearchTree::BinarySearchTree(const BinarySearchTree& orig) {
 BinarySearchTree::~BinarySearchTree() {
 }
 
-BinarySearchTree::Insert(int key, string value){
+BinarySearchTree::insert(int key, string value){
+    Knoten u = new Knoten(key, value);
+    Knoten v = this->root;
+    while(v != NULL){
+        if(u.getKey() < v.getKey()){
+            if(v.getKey() == NULL){
+                v.setLeft(u);
+                return;
+            } else {
+                v = v.getLeft();
+            }
+        } else {
+            if(v.getRight() == NULL){
+                v.setLeft(u);
+                return;
+            } else {
+                v = v.getRight();
+            }
+        }
+    }
+    this->root = u;
     
 }
 
-Knoten BinarySearchTree::search(ubt key){
-    
+Knoten BinarySearchTree::search(int key){
+    Knoten v = this->root;
+    while(v != NULL){
+        if(k < v.getKey()){
+            v = v.getLeft();
+        } else if(k == v.key){
+            return v;
+        } else {
+            v = v.getRight();
+        }
+        return NULL;
+    }
 }
 
 BinarySearchTree::remove(int key){

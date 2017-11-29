@@ -19,7 +19,7 @@
 
 class BinarySearchTree {
 public:
-    BinarySearchTree();
+    BinarySearchTree(int key, string value);
     BinarySearchTree(const BinarySearchTree& orig);
     virtual ~BinarySearchTree();
     insert(int key, string value);
@@ -28,6 +28,7 @@ public:
     check();
     int height();
 private:
+    Knoten root;
 
 };
 
