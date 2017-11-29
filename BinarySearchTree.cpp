@@ -64,7 +64,36 @@ Knoten BinarySearchTree::search(int key){
 }
 
 BinarySearchTree::remove(int key){
-    
+    Knoten u = this->search(key);
+    if(u.getLeft() == NULL && u.getRight() == NULL){ //no leafs
+        if(u.getRoot()->getLeft()->getKey() == u.getKey()){ //check for u being the right or left leaf
+            u.getRoot()->setLeft(NULL);
+            u.~Knoten();
+        } else {
+            u.getRoot()->setRight(NULL);
+            u.~Knoten();
+        }
+    } else if(u.getLeft() != NULL && u.getRight() != NULL){ // 2 leafs
+        //TODO
+    } else { // one leaf
+        if(u.getLeft() != NULL){
+            if(u.getRoot()->getLeft()->getKey() == u.getKey()){ //check for u being the right or left leaf
+                u.getRoot()->setLeft(u.getLeft());
+                u.~Knoten();
+            } else {
+                u.getRoot()->setRight(u.getLeft());
+                u.~Knoten();
+            }
+        } else {
+            if(u.getRoot()->getLeft()->getKey() == u.getKey()){ //check for u being the right or left leaf
+                u.getRoot()->setLeft(u.getRight());
+                u.~Knoten();
+            } else {
+                u.getRoot()->setRight(u.getRight());
+                u.~Knoten();
+            }
+        }
+    }
 }
 
 BinarySearchTree::check(){
