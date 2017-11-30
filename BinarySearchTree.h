@@ -17,6 +17,8 @@
 #include <string>
 #include "Knoten.h"
 
+using namespace std;
+
 class BinarySearchTree {
 public:
     BinarySearchTree(int key, string value);

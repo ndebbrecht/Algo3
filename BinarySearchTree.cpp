@@ -54,7 +54,7 @@ Knoten BinarySearchTree::search(int key){
     while(v != NULL){
         if(k < v.getKey()){
             v = v.getLeft();
-        } else if(k == v.key){
+        } else if(k == v.getKey()){
             return v;
         } else {
             v = v.getRight();
