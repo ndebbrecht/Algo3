@@ -16,6 +16,8 @@
 
 #include <string>
 
+using namespace std;
+
 class Knoten {
 public:
     Knoten();
