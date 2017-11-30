@@ -105,7 +105,16 @@ BinarySearchTree::remove(int key){
 }
 
 BinarySearchTree::check(Knoten v){
-    //TODO
+    if(v.getLeft() != NULL){
+        if(v.getLeft()->getKey() < v.getKey()){
+            check(v.getLeft());
+        } else {
+            //TODO fehler fixen
+        }
+    }
+    if(v.getRight() != NULL){
+        
+    }
 }
 
 int BinarySearchTree::height(Knoten v){
