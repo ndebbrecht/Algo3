@@ -74,7 +74,15 @@ BinarySearchTree::remove(int key){
             u.~Knoten();
         }
     } else if(u.getLeft() != NULL && u.getRight() != NULL){ // 2 leafs
-        //TODO
+        if(u.getRoot()->getLeft()->getKey() == u.getKey()){
+            u.getRoot()->setLeft(u.getLeft());
+            this->insert(u.getRight());
+            u.~Knoten();
+        } else {
+           u.getRoot()->setRight(u.getRight());
+           this->insert(u.getLeft());
+           u.~Knoten();
+        }
     } else { // one leaf
         if(u.getLeft() != NULL){
             if(u.getRoot()->getLeft()->getKey() == u.getKey()){ //check for u being the right or left leaf
@@ -97,11 +105,11 @@ BinarySearchTree::remove(int key){
 }
 
 BinarySearchTree::check(){
-    
+    //TODO
 }
 
 int BinarySearchTree::height(){
     int height = 0;
-    
+    //TODO
     return height;
 }
