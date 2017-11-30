@@ -28,7 +28,7 @@ public:
     Knoten* search(int key);
     remove(int key);
     check();
-    int height();
+    int height(Knoten v);
 private:
     Knoten root;
 

@@ -104,12 +104,13 @@ BinarySearchTree::remove(int key){
     }
 }
 
-BinarySearchTree::check(){
+BinarySearchTree::check(Knoten v){
     //TODO
 }
 
-int BinarySearchTree::height(){
-    int height = 0;
-    //TODO
-    return height;
+int BinarySearchTree::height(Knoten v){
+    if(!v){
+        return -1;
+    }
+    return 1 + max(height(v.getLeft()), height(v.getRight()));
 }
