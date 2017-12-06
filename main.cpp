@@ -43,6 +43,26 @@ int main(int argc, char** argv) {
 
     cout<<"Pruefen ob Baum bst: ";
     cout<<boolalpha<<bst->check()<<endl;
+    
+    BinarySearchTree *bst1 =new BinarySearchTree();
+    insertValues(bst1,10000);
+    cout<<"Hoehe bei 10000: "<<bst1->height()<<endl;
+    BinarySearchTree *bst2 =new BinarySearchTree();
+    insertValues(bst2,100000);
+    cout<<"Hoehe bei 100000: "<<bst2->height()<<endl;
+    BinarySearchTree *bst3 =new BinarySearchTree();
+    insertValues(bst3,250000);
+    cout<<"Hoehe bei 250000: "<<bst3->height()<<endl;
+    BinarySearchTree *bst4 =new BinarySearchTree();
+    insertValues(bst4,500000);
+    cout<<"Hoehe bei 500000: "<<bst4->height()<<endl;
+    cout<<"Hoehe bei 1000000: "<<bst->height()<<endl;
+    
+    cout<<"Remove die ungeraden Elemente:"<<endl;
+    removeOddNumbers(bst,GROESSEBST);
+    cout<<"Pruefen ob noch immer Bst: ";
+    cout<<boolalpha<<bst->check()<<endl;
+    
     return 0;
 }
 

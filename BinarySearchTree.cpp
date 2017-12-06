@@ -68,7 +68,7 @@ Knoten* BinarySearchTree::search(int k){
 }
 
 void BinarySearchTree::remove(int key){
-    Knoten* u = this->search(key);
+    /*Knoten* u = this->search(key);
     if(u->getLeft() == NULL && u->getRight() == NULL){ //no leafs
         if(u->getRoot()->getLeft()->getKey() == u->getKey()){ //check for u being the right or left leaf
             u->getRoot()->setLeft(NULL);
@@ -105,6 +105,120 @@ void BinarySearchTree::remove(int key){
                 u->~Knoten();
             }
         }
+    }*/
+    Knoten* toDelete = this->search(key);
+    if(toDelete !=NULL){
+    Knoten* parent = toDelete->getRoot();
+    bool parentIsBigger = false;
+    if(parent!=NULL) {
+        parentIsBigger = (parent->getKey() > toDelete->getKey());
+    }
+        if(toDelete->getRight()==NULL&&toDelete->getLeft()==NULL){
+            //1: toDelete is leaf
+            if(parent!=NULL){
+                if(parentIsBigger){
+                    //if parent ID is greater; parents left Child = NULL
+                    parent->setLeft(NULL);
+                }else{
+                    //if parent ID is smaller; parents left Child = NULL
+                    parent->setRight(NULL);
+                }
+            }
+            else{
+                this->root = NULL;
+            }
+            delete toDelete;
+        }else if((toDelete->getRight()!=NULL)&&(toDelete->getLeft()!=NULL)){
+            //2: toDelete has two children
+
+            //find successor
+            Knoten* successor = toDelete->getRight();
+            while(successor->getLeft()!=NULL){
+                successor=successor->getLeft();
+            }
+
+            if(toDelete->getRight()==successor){
+                successor->setLeft(toDelete->getLeft());
+                if(toDelete!=this->root){
+                    if(parentIsBigger){
+                        parent->setLeft(successor);
+                    }else{
+                        parent->setRight(successor);
+                    }
+                    successor->setRoot(parent);
+                }else{
+                    this->root = successor;
+                    successor->setRoot(NULL);
+                }
+            }else{
+                if(successor->getRight()!=NULL){
+                    //if in right sub tree of successor there still are values put the right child in successors position
+                    successor->getRoot()->setLeft(successor->getRight());
+                    successor->getRight()->setRoot(successor->getRoot());
+                }
+                else{
+                    //else remove sucessor from tree
+                    successor->getRoot()->setLeft(NULL);
+                }
+                //give successor childs and parent of toDelete (same order)
+                successor->setLeft(toDelete->getLeft());
+                successor->setRight(toDelete->getRight());
+                successor->setRoot(parent);
+                //update parent - check if root
+                if(this->root==toDelete){
+                    this->root = successor;
+                }else{
+                    if(parentIsBigger){
+                        parent->setLeft(successor);
+                    }else{
+                        parent->setRight(successor);
+                    }
+                }
+                successor->getLeft()->setRoot(successor);
+                successor->getRight()->setRoot(successor);
+
+
+            }
+            toDelete->setRight(NULL);
+            toDelete->setLeft(NULL);
+            toDelete->setRoot(NULL);
+            delete toDelete;
+        }else {
+            //3: toDelete has only one Child
+            if(toDelete->getRight() == NULL){
+                //left child now correct child of parent
+                if(parent!=NULL){
+                    if(parentIsBigger){
+                        parent->setLeft(toDelete->getLeft());
+                        parent->getLeft()->setRoot(parent);
+                    } else{
+                        parent->setRight(toDelete->getLeft());
+                        parent->getRight()->setRoot(parent);
+                    }
+                } else{
+                    this->root = toDelete->getLeft();
+                    toDelete->getLeft()->setRoot(NULL);
+                }
+            }else if(toDelete->getLeft() == NULL){
+                //right child now correct child of parent
+                if(parent!=NULL){
+                    if(parentIsBigger){
+                        parent->setLeft(toDelete->getRight());
+                        parent->getLeft()->setRoot(parent);
+                    } else{
+                        parent->setRight(toDelete->getRight());
+                        parent->getRight()->setRoot(parent);
+                    }
+                } else{
+                    this->root = toDelete->getRight();
+                    toDelete->getRight()->setRoot(NULL);
+                }
+            }
+            delete toDelete;
+        }
+    }
+    else{
+      //  std::cout<<"Das gesuchte Element ist nicht im Baum!"<<std::endl;
     }
 }
 
