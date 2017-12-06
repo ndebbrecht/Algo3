@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/BinarySearchTree.o \
 	${OBJECTDIR}/Knoten.o \
 	${OBJECTDIR}/Random.o \
+	${OBJECTDIR}/RedBlackTree.o \
 	${OBJECTDIR}/main.o
 
 
@@ -79,6 +80,11 @@ ${OBJECTDIR}/Random.o: Random.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Random.o Random.cpp
+
+${OBJECTDIR}/RedBlackTree.o: RedBlackTree.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RedBlackTree.o RedBlackTree.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

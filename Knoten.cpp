@@ -14,15 +14,18 @@
 #include "Knoten.h"
 #include <string>
 
-int key;
-string value;
-Knoten* left;
-Knoten* right;
-Knoten* root;
-
 Knoten::Knoten(int key, string value) {
     this->key = key;
     this->value = value;
+    this->root = NULL;
+    this->right = NULL;
+    this->left = NULL;
+}
+
+Knoten::Knoten(int key, string value, bool color) {
+    this->key = key;
+    this->value = value;
+    this->color = color;
     this->root = NULL;
     this->right = NULL;
     this->left = NULL;
@@ -61,6 +64,10 @@ Knoten* Knoten::getRoot(){
     return this->root;
 }
 
+bool Knoten::getColor(){
+    return this->color;
+}
+
 void Knoten::setRoot(Knoten* root){
     this->root = root;
 }
@@ -71,4 +78,8 @@ void Knoten::setValue(string value){
 
 void Knoten::setKey(int key){
     this->key = key;
+}
+
+void Knoten::setColor(bool color){
+    this->color = color;
 }

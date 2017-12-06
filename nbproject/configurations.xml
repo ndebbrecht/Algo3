@@ -7,6 +7,7 @@
       <itemPath>BinarySearchTree.h</itemPath>
       <itemPath>Knoten.h</itemPath>
       <itemPath>Random.h</itemPath>
+      <itemPath>RedBlackTree.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -18,6 +19,7 @@
       <itemPath>BinarySearchTree.cpp</itemPath>
       <itemPath>Knoten.cpp</itemPath>
       <itemPath>Random.cpp</itemPath>
+      <itemPath>RedBlackTree.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -54,6 +56,10 @@
       </item>
       <item path="Random.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="RedBlackTree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RedBlackTree.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -88,6 +94,10 @@
       <item path="Random.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Random.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RedBlackTree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RedBlackTree.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
