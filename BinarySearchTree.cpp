@@ -114,10 +114,12 @@ bool BinarySearchTree::check(){
 
 bool BinarySearchTree::check(Knoten* v, int min, int max){
     /*if(v.getLeft() != NULL){
+bool BinarySearchTree::check(Knoten v){
+    if(v.getLeft() != NULL){
         if(v.getLeft()->getKey() < v.getKey()){
             check(v.getLeft());
         } else {
-            //TODO fehler fixen
+            return false;
         }
     }
     if(v.getRight() != NULL){
@@ -134,6 +136,7 @@ bool BinarySearchTree::check(Knoten* v, int min, int max){
         return check(v->getLeft(),min,v->getKey())&&
                check(v->getRight(),v->getKey(),max);
     }
+    return true;
 }
 
 int BinarySearchTree::height(){
