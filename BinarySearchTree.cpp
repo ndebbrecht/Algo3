@@ -104,17 +104,22 @@ BinarySearchTree::remove(int key){
     }
 }
 
-BinarySearchTree::check(Knoten v){
+bool BinarySearchTree::check(Knoten v){
     if(v.getLeft() != NULL){
         if(v.getLeft()->getKey() < v.getKey()){
             check(v.getLeft());
         } else {
-            //TODO fehler fixen
+            return false;
         }
     }
     if(v.getRight() != NULL){
-        
+        if(v.getRight()->getKey() > v.getKey()){
+            check(v.getRight());
+        } else {
+            return false;
+        }
     }
+    return true;
 }
 
 int BinarySearchTree::height(Knoten v){
