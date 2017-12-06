@@ -21,23 +21,22 @@ Knoten* right;
 Knoten* root;
 
 Knoten::Knoten(int key, string value) {
-    this->key = key:
+    this->key = key;
     this->value = value;
-    this->root = root;
-}
-
-Knoten::Knoten(const Knoten& orig) {
+    this->root = NULL;
+    this->right = NULL;
+    this->left = NULL;
 }
 
 Knoten::~Knoten() {
 }
 
-Knoten::setLeft(Knoten* left){
+void Knoten::setLeft(Knoten* left){
     this->left = left;
     left->setRoot(this);
 }
 
-Knoten::setRight(Knoten* right){
+void Knoten::setRight(Knoten* right){
     this->right = right;
     right->setRoot(this);
 }
@@ -47,7 +46,7 @@ Knoten* Knoten::getLeft(){
 }
 
 Knoten* Knoten::getRight(){
-    this->right;
+    return this->right;
 }
 
 int Knoten::getKey(){
@@ -62,14 +61,14 @@ Knoten* Knoten::getRoot(){
     return this->root;
 }
 
-Knoten::setRoot(Knoten* root){
+void Knoten::setRoot(Knoten* root){
     this->root = root;
 }
 
-Knoten::setValue(string value){
+void Knoten::setValue(string value){
     this->value = value;
 }
 
-Knoten::setKey(int key){
+void Knoten::setKey(int key){
     this->key = key;
 }

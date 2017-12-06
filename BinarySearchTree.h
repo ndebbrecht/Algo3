@@ -15,23 +15,26 @@
 #define BINARYSEARCHTREE_H
 
 #include <string>
+#include <limits.h>
 #include "Knoten.h"
 
 using namespace std;
 
 class BinarySearchTree {
 public:
+    BinarySearchTree();
     BinarySearchTree(int key, string value);
     BinarySearchTree(const BinarySearchTree& orig);
     virtual ~BinarySearchTree();
-    insert(int key, string value);
+    void insert(int key, string value);
     Knoten* search(int key);
-    remove(int key);
-    check();
-    int height(Knoten v);
+    void remove(int key);
+    bool check(Knoten* v, int min, int max);
+    bool check();
+    int height(Knoten* v);
+    int height();
 private:
-    Knoten root;
-
+    Knoten* root;
 };
 
 #endif /* BINARYSEARCHTREE_H */

@@ -21,13 +21,14 @@ using namespace std;
 class Knoten {
 public:
     Knoten();
-    Knoten(const Knoten& orig);
+    //Knoten(const Knoten& orig);
+    Knoten(int key, string value);
     virtual ~Knoten();
-    setLeft(Knoten* left);
-    setRight(Knoten* right);
-    setRoot(Knoten* root);
-    setKey(int key);
-    setValue(string value);
+    void setLeft(Knoten* left);
+    void setRight(Knoten* right);
+    void setRoot(Knoten* root);
+    void setKey(int key);
+    void setValue(string value);
     Knoten* getRight();
     Knoten* getLeft();
     Knoten* getRoot();
