@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Algo3
+PROJECTNAME=Algo_3_Aufgabe_1
 
 # Active Configuration
 DEFAULTCONF=Debug

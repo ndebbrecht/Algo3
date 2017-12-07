@@ -108,6 +108,7 @@ void BinarySearchTree::remove(int key){
     }*/
     Knoten* toDelete = this->search(key);
     if(toDelete !=NULL){
+        cout<<"hallo"<<endl;
     Knoten* parent = toDelete->getRoot();
     bool parentIsBigger = false;
     if(parent!=NULL) {
@@ -130,7 +131,6 @@ void BinarySearchTree::remove(int key){
             delete toDelete;
         }else if((toDelete->getRight()!=NULL)&&(toDelete->getLeft()!=NULL)){
             //2: toDelete has two children
-
             //find successor
             Knoten* successor = toDelete->getRight();
             while(successor->getLeft()!=NULL){

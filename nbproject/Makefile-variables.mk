@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=algo3
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/algo3
+CND_ARTIFACT_NAME_Debug=algo_3_aufgabe_1
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/algo_3_aufgabe_1
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=algo3.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/algo3.tar
+CND_PACKAGE_NAME_Debug=algo3aufgabe1.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/algo3aufgabe1.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=algo3
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/algo3
+CND_ARTIFACT_NAME_Release=algo_3_aufgabe_1
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/algo_3_aufgabe_1
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=algo3.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/algo3.tar
+CND_PACKAGE_NAME_Release=algo3aufgabe1.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/algo3aufgabe1.tar
 #
 # include compiler specific variables
 #

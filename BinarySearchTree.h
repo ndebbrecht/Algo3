@@ -15,6 +15,8 @@
 #define BINARYSEARCHTREE_H
 
 #include <string>
+#include <iostream>
+#include <cstdlib>
 #include <limits.h>
 #include "Knoten.h"
 
