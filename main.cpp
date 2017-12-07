@@ -20,8 +20,8 @@
 #include "BinarySearchTree.h"
 #include "RedBlackTree.h"
 
-#define GROESSEBST 1000000
-#define MAXZAHLENWERT 1000000
+#define GROESSEBST 1000
+#define MAXZAHLENWERT 1000
 
 using namespace std;
 
@@ -33,7 +33,7 @@ void removeOddNumbers(BinarySearchTree* tree, int size);
  */
 int main(int argc, char** argv) {
     /******* AUFGABE 1 *******/
-    /*BinarySearchTree* bst = new BinarySearchTree();
+    BinarySearchTree* bst = new BinarySearchTree();
     clock_t preInsert = clock();
     insertValues(bst,GROESSEBST);
 
@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
     cout<<"Prüfung ob Binärer Suchbaum: ";
     cout<<boolalpha<<bst->check()<<endl;
     
-    BinarySearchTree *bst1 =new BinarySearchTree();
+    /*BinarySearchTree *bst1 =new BinarySearchTree();
     insertValues(bst1,10000);
     cout<<"Hoehe bei 10000: "<<bst1->height()<<endl;
     BinarySearchTree *bst2 =new BinarySearchTree();
@@ -59,15 +59,16 @@ int main(int argc, char** argv) {
     BinarySearchTree *bst4 =new BinarySearchTree();
     insertValues(bst4,500000);
     cout<<"Hoehe bei 500000: "<<bst4->height()<<endl;
-    cout<<"Hoehe bei 1000000: "<<bst->height()<<endl;
+    cout<<"Hoehe bei 1000000: "<<bst->height()<<endl;*/
     
     cout<<"Remove die ungeraden Elemente:"<<endl;
     removeOddNumbers(bst,GROESSEBST);
+    cout<<bst->height()<<endl;
     cout<<"Pruefen ob noch immer Bst: ";
-    cout<<boolalpha<<bst->check()<<endl;*/
+    cout<<boolalpha<<bst->check()<<endl;
     
     /******* AUFGABE 2 *******/
-    RedBlackTree* rbt = new RedBlackTree();
+    /*RedBlackTree* rbt = new RedBlackTree();
     clock_t preInsertRBT = clock();
     insertValues(rbt,GROESSEBST);
     clock_t postInsertRBT = clock();
@@ -76,9 +77,9 @@ int main(int argc, char** argv) {
     cout<<"Der Rot Schwarz Baum mit "<<GROESSEBST<<" Werten hat zum Aufbau "<<insertTimeRBT<<"ms gebraucht!"<<endl;
 
     cout<<"Prüfung ob Rot Schwarz: ";
-    cout<<boolalpha<<rbt->check()<<endl;
+    cout<<boolalpha<<rbt->check()<<endl;*/
 
-    cout<<"Hoehe von verschiedenen Baeumen: "<<endl;
+    /*cout<<"Hoehe von verschiedenen Baeumen: "<<endl;
     RedBlackTree *rbt1 =new RedBlackTree();
     insertValues(rbt1,10000);
     cout<<"Hoehe bei 10000: "<<rbt1->height()<<endl;
@@ -91,30 +92,30 @@ int main(int argc, char** argv) {
     RedBlackTree *rbt4 =new RedBlackTree();
     insertValues(rbt4,500000);
     cout<<"Hoehe bei 500000: "<<rbt4->height()<<endl;
-    cout<<"Hoehe bei 1000000: "<<rbt->height()<<endl;
+    cout<<"Hoehe bei 1000000: "<<rbt->height()<<endl;*/
     
     return 0;
 }
 
 void insertValues(BinarySearchTree* tree, int size){
-    Random r(MAXZAHLENWERT);
+    //Random r(MAXZAHLENWERT);
     for(int i = 0;i < size; i++){
-        int rand = r.give();
-        if(rand != INT_MIN) tree->insert(rand,"Knoten_"+to_string(rand/10));
+        int per = i;
+        if(per != INT_MIN) tree->insert(per,"Knoten_"+to_string(per/10));
     }
 }
 
 void insertValues(RedBlackTree* tree, int size){
-    Random r(MAXZAHLENWERT);
+    //Random r(MAXZAHLENWERT);
     for(int i = 0;i < size; i++){
-        int rand = r.give();
-        if(rand != INT_MIN) tree->insert(rand,"Knoten_"+to_string(rand/10));
+        //int rand = r.give();
+        if(i != INT_MIN) tree->insert(i,"Knoten_"+to_string(i/10));
     }
 }
 
 void removeOddNumbers(BinarySearchTree* tree, int size){
     int i = 0;
-    for(i=0;i<size;i++){
+    for(i=0;i<size-1;i++){
         if(i%2!=0)tree->remove(i);
     }
 }

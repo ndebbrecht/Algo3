@@ -13,58 +13,43 @@
 
 #include "BinarySearchTree.h"
 
-BinarySearchTree::BinarySearchTree(int key, string value) {
-    //this->root = new Knoten(key, value);
-}
-
-BinarySearchTree::BinarySearchTree(const BinarySearchTree& orig) {
-}
-
-BinarySearchTree::BinarySearchTree(){
+BinarySearchTree::BinarySearchTree() {
     this->root = NULL;
 }
-
-BinarySearchTree::~BinarySearchTree() {
-    
+Knoten* BinarySearchTree::getRoot() {
+    return this->root;
+}
+void BinarySearchTree::setRoot(Knoten *newRoot) {
+    this->root = newRoot;
 }
 
-void BinarySearchTree::insert(int key, string value){
-    Knoten* u = new Knoten(key, value);
+bool BinarySearchTree::insert(int key, std::string value) {
     Knoten* v = this->root;
-    while(v != NULL){
-        if(u->getKey() < v->getKey()){
+    Knoten* toInsert = new Knoten(key,value);
+    while (v!=NULL){
+        if(toInsert->getKey() < v->getKey()){
             if(v->getLeft() == NULL){
-                v->setLeft(u);
-                return;
-            } else {
+                v->setLeft(toInsert);
+                toInsert->setRoot(v);
+                return true;
+            }else{
                 v = v->getLeft();
             }
-        } else {
+        }else if(toInsert->getKey() == v->getKey()){
+           return false;
+        }else{
             if(v->getRight() == NULL){
-                v->setRight(u);
-                return;
-            } else {
+                v->setRight(toInsert);
+                toInsert->setRoot(v);
+                return true;
+            }else{
                 v = v->getRight();
             }
         }
     }
-    this->root = u;
-    
-}
-
-Knoten* BinarySearchTree::search(int k){
-    Knoten* v = this->root;
-    while(v != NULL){
-        if(k < v->getKey()){
-            v = v->getLeft();
-        } else if(k == v->getKey()){
-            return v;
-        } else {
-            v = v->getRight();
-        }
-        return NULL;
-    }
-    return NULL;
+    //If Tree empty new node is root
+    this->root=toInsert;
+    return true;
 }
 
 void BinarySearchTree::remove(int key){
@@ -106,7 +91,7 @@ void BinarySearchTree::remove(int key){
             }
         }
     }*/
-    Knoten* toDelete = this->search(key);
+    Knoten* toDelete = this->searchKnoten(key);
     if(toDelete !=NULL){
     Knoten* parent = toDelete->getRoot();
     bool parentIsBigger = false;
@@ -125,7 +110,7 @@ void BinarySearchTree::remove(int key){
                 }
             }
             else{
-                this->root = NULL;
+                this->setRoot(NULL);
             }
             delete toDelete;
         }else if((toDelete->getRight()!=NULL)&&(toDelete->getLeft()!=NULL)){
@@ -139,7 +124,7 @@ void BinarySearchTree::remove(int key){
 
             if(toDelete->getRight()==successor){
                 successor->setLeft(toDelete->getLeft());
-                if(toDelete!=this->root){
+                if(toDelete!=this->getRoot()){
                     if(parentIsBigger){
                         parent->setLeft(successor);
                     }else{
@@ -147,7 +132,7 @@ void BinarySearchTree::remove(int key){
                     }
                     successor->setRoot(parent);
                 }else{
-                    this->root = successor;
+                    this->setRoot(successor);
                     successor->setRoot(NULL);
                 }
             }else{
@@ -165,8 +150,8 @@ void BinarySearchTree::remove(int key){
                 successor->setRight(toDelete->getRight());
                 successor->setRoot(parent);
                 //update parent - check if root
-                if(this->root==toDelete){
-                    this->root = successor;
+                if(this->getRoot()==toDelete){
+                    this->setRoot(successor);
                 }else{
                     if(parentIsBigger){
                         parent->setLeft(successor);
@@ -210,7 +195,7 @@ void BinarySearchTree::remove(int key){
                         parent->getRight()->setRoot(parent);
                     }
                 } else{
-                    this->root = toDelete->getRight();
+                    this->setRoot(toDelete->getRight());
                     toDelete->getRight()->setRoot(NULL);
                 }
             }
@@ -262,4 +247,24 @@ int BinarySearchTree::height(Knoten* v){
         return -1;
     }
     return 1 + max(height(v->getLeft()), height(v->getRight()));
+}
+
+string BinarySearchTree::search(int key) {
+    Knoten* temp = this->searchKnoten(key);
+    return temp->getValue();
+}
+
+Knoten* BinarySearchTree::searchKnoten(int key) {
+    Knoten* v = this->root;
+    while (v!=NULL){
+        if(key<v->getKey()){
+            v = v->getLeft();
+        }else if(key == v->getKey()){
+            return v;
+        }
+        else{
+            v=v->getRight();
+        }
+    }
+    return NULL;
 }

@@ -25,9 +25,11 @@ public:
     BinarySearchTree();
     BinarySearchTree(int key, string value);
     BinarySearchTree(const BinarySearchTree& orig);
-    virtual ~BinarySearchTree();
-    void insert(int key, string value);
-    Knoten* search(int key);
+    Knoten* getRoot();
+    void setRoot(Knoten* newRoot);
+    bool insert(int key, string value);
+    string search(int key);
+    Knoten* searchKnoten(int key);
     void remove(int key);
     bool check(Knoten* v, int min, int max);
     bool check();
